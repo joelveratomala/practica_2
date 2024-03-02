@@ -1,0 +1,72 @@
+<div class="row col-12 flex align-content-center  text-center  ">
+<p-card header="Advanced Card "
+
+        subheader="Card Subheader" [style]="{ width: '500px' }">
+  <ng-template pTemplate="header">
+
+  </ng-template>
+
+  <div class="row text-center" >
+    <div class="col-6">
+      <div class="flex flex-column gap-2">
+        <label for="nombre">Nombre</label>
+        <input pInputText id="nombre" aria-describedby="username-help"
+               [(ngModel)]="objectPersona.nombre" />
+        <small id="username-help">Ingrese su nombre.</small>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="flex flex-column gap-2">
+        <label for="apellido">Apellido</label>
+        <input pInputText id="apellido" aria-describedby="username-help"
+               [(ngModel)]="objectPersona.apellido" />
+        <small id="apellido_mensaje">Ingrse su apellido</small>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="flex flex-column gap-2">
+        <label for="estado">Estado</label>
+        <input pInputText id="estado" aria-describedby="username-help"
+               [(ngModel)]="objectPersona.estado" />
+        <small id="estado_mensaje">Ingrese su estado</small>
+      </div>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Eliminar" (onClick)="fun_eliminar($event)"
+              severity="danger"  icon="pi pi-check"></p-button>
+
+    <p-button label="Guardar" (onClick)="fun_click($event)"
+              icon="pi pi-check"></p-button>
+    <p-button label="Cancel" severity="warning"
+              (onClick)="fun_cancelar($event)"
+              icon="pi pi-times"
+              styleClass="p-button-secondary"
+              [style]="{ 'margin-left': '.5em' }"></p-button>
+  </ng-template>
+</p-card>
+</div>
+<div class="col-12">
+
+  <p-table [value]="jsonPersona"
+           [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Estado</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-persona>
+      <tr>
+        <td>{{ persona.nombre }}</td>
+        <td>{{ persona.apellido }}</td>
+        <td>{{ persona.estado }}</td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+
